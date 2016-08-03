@@ -26,8 +26,8 @@ RUN echo "memory_limit=2048M" > $PHP_INI_DIR/conf.d/memory-limit.ini
 RUN echo "date.timezone=${PHP_TIMEZONE:-UTC}" > $PHP_INI_DIR/conf.d/date_timezone.ini
 
 # Set up the application directory.
-VOLUME ["/data/api"]
-WORKDIR /data/api
+VOLUME ["/data/app"]
+WORKDIR /data/app
 
 ENV LARAVEL_ENV docker
 
