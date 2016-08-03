@@ -36,6 +36,13 @@ RUN sed -i '1 a xdebug.remote_port=9000' /usr/local/etc/php/conf.d/docker-php-ex
 RUN sed -i '1 a xdebug.remote_host=127.0.0.1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.remote_enable=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.overload_var_dump=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.var_display_max_depth=10' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.var_display_max_children=256' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+RUN sed -i '1 a xdebug.var_display_max_data=1024' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+
+# Enable and configure zip
+RUN pecl install zip
+Run docker-php-ext-enable zip
 
 ENV LARAVEL_ENV docker
 
