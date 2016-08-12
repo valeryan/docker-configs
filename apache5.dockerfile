@@ -44,6 +44,9 @@ RUN sed -i '1 a xdebug.var_display_max_data=1024' /usr/local/etc/php/conf.d/dock
 RUN pecl install zip
 Run docker-php-ext-enable zip
 
+# Time Zone
+RUN echo "date.timezone=${PHP_TIMEZONE:-UTC}" > $PHP_INI_DIR/conf.d/date_timezone.ini
+
 ENV LARAVEL_ENV docker
 
 EXPOSE 443
