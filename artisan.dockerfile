@@ -23,8 +23,8 @@ RUN docker-php-ext-install mcrypt zip bz2 mbstring pdo_mysql\
 
 
 # Set up the application directory.
-VOLUME ["/data/api"]
-WORKDIR /data/api
+VOLUME ["/data/app"]
+WORKDIR /data/app
 
 ENV LARAVEL_ENV docker
 

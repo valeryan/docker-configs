@@ -8,4 +8,4 @@ RUN rm /etc/nginx/conf.d/default.conf
 ADD ./etc/nginx/extra.conf /etc/nginx/conf.d/
 ADD ./etc/nginx/api.conf /etc/nginx/conf.d/
 
-ENV LARAVEL_ENV docker
+ENV APP_ENV docker
