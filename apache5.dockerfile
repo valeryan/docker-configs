@@ -47,6 +47,6 @@ Run docker-php-ext-enable zip
 # Time Zone
 RUN echo "date.timezone=${PHP_TIMEZONE:-UTC}" > $PHP_INI_DIR/conf.d/date_timezone.ini
 
-ENV LARAVEL_ENV docker
+ENV APP_ENV docker
 
 EXPOSE 443

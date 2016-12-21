@@ -12,11 +12,21 @@ RUN apt-get update -y && \
     libssl-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
+    libmcrypt-dev \
     libpng12-dev \
+    libbz2-dev \
+    php-pear \
+    curl \
+    git \
+    subversion \
+    zlib1g-dev \
+    libicu-dev \
+    g++ \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-    && docker-php-ext-install mysqli mbstring pdo_mysql pdo_sqlite mcrypt ftp gd
+    && docker-php-ext-configure intl \
+    && docker-php-ext-install mysqli mbstring pdo_mysql pdo_sqlite mcrypt ftp gd intl bz2
 
-# Enable and configure xdebug
+# Install, Enable and Configure xdebug
 RUN pecl install xdebug
 RUN docker-php-ext-enable xdebug
 RUN sed -i '1 a xdebug.remote_autostart=true' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
@@ -31,8 +41,8 @@ RUN sed -i '1 a xdebug.var_display_max_depth=10' /usr/local/etc/php/conf.d/docke
 RUN sed -i '1 a xdebug.var_display_max_children=256' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.var_display_max_data=1024' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-# Enable and configure zip
+# Install and Enable zip
 RUN pecl install zip
 Run docker-php-ext-enable zip
 
-ENV LARAVEL_ENV docker
+ENV APP_ENV docker

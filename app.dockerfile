@@ -10,4 +10,4 @@ ADD ./etc/nginx/app.conf /etc/nginx/conf.d/
 
 EXPOSE 443
 
-ENV LARAVEL_ENV docker
+ENV APP_ENV docker

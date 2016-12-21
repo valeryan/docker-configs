@@ -1,4 +1,4 @@
-FROM php:apache
+FROM php:7.0-apache
 
 RUN usermod -u 1000 www-data
 RUN usermod -G staff www-data
@@ -37,6 +37,6 @@ RUN sed -i '1 a xdebug.remote_host=127.0.0.1' /usr/local/etc/php/conf.d/docker-p
 RUN sed -i '1 a xdebug.remote_enable=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 RUN sed -i '1 a xdebug.overload_var_dump=1' /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
-ENV LARAVEL_ENV docker
+ENV APP_ENV docker
 
 EXPOSE 443
